@@ -100,13 +100,13 @@ def view_record():
     contact_strvar.set(selection[3]); gender_strvar.set(selection[4])
     dob.set_date(date); stream_strvar.set(selection[6])
 
-
 # Initializing the GUI window
 main = Tk()
 main.title('Student Management System')
 main.geometry('1550x850')
 main.resizable(0, 0)
-
+icon = PhotoImage(file="logo.png")
+main.iconphoto(True,icon)
 # Creating the background and foreground color variables
 lf_bg = 'MediumSpringGreen' # bg color for the left_frame
 cf_bg = 'PaleGreen' # bg color for the center_frame
@@ -131,26 +131,27 @@ right_frame = Frame(main, bg="Gray35")
 right_frame.place(relx=0.4, y=30, relheight=1, relwidth=0.6)
 
 # Placing components in the left frame
-Label(left_frame, text="Name", font=labelfont, bg=lf_bg).place(relx=0.375, rely=0.05)
+Label(left_frame, text="Name", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.05)
 Label(left_frame, text="Contact Number", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.18)
-Label(left_frame, text="Email Address", font=labelfont, bg=lf_bg).place(relx=0.2, rely=0.31)
-Label(left_frame, text="Gender", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.44)
-Label(left_frame, text="Date of Birth (DOB)", font=labelfont, bg=lf_bg).place(relx=0.1, rely=0.57)
-Label(left_frame, text="Department", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.7)
+Label(left_frame, text="Email Address", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.31)
+Label(left_frame, text="Gender", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.44)
+Label(left_frame, text="Date of Birth (DOB)", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.57)
+Label(left_frame, text="Stream", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.7)
 
 Entry(left_frame, width=19, textvariable=name_strvar, font=entryfont).place(x=20, rely=0.1)
 Entry(left_frame, width=19, textvariable=contact_strvar, font=entryfont).place(x=20, rely=0.23)
-Entry(left_frame, width=19, textvariable=email_strvar, font=entryfont).place(x=20, rely=0.36)
+Entry(left_frame, width=19, textvariable=email_strvar,font=entryfont).place(x=20, rely=0.36)
 Entry(left_frame, width=19, textvariable=stream_strvar, font=entryfont).place(x=20, rely=0.75)
 
-OptionMenu(left_frame, gender_strvar, 'Male', "Female").place(x=45, rely=0.49, relwidth=0.5)
+OptionMenu(left_frame, gender_strvar, 'Male', "Female").place(x=20, rely=0.49, relwidth=0.5)
 
 dob = DateEntry(left_frame, font=("Arial", 12), width=15)
 dob.place(x=20, rely=0.62)
 
-Button(left_frame, text='Submit and Add Record', font=labelfont, command=add_record, width=18).place(relx=0.025, rely=0.85)
+Button(left_frame, text='Submit ', font=labelfont, command=add_record, width=18).place(relx=0.025, rely=0.85)
 
 # Placing components in the center frame
+Button(center_frame, text='Add Record', font=labelfont, command=add_record, width=15).place(relx=0.1, rely=0.15)
 Button(center_frame, text='Delete Record', font=labelfont, command=remove_record, width=15).place(relx=0.1, rely=0.25)
 Button(center_frame, text='View Record', font=labelfont, command=view_record, width=15).place(relx=0.1, rely=0.35)
 Button(center_frame, text='Reset Fields', font=labelfont, command=reset_fields, width=15).place(relx=0.1, rely=0.45)
