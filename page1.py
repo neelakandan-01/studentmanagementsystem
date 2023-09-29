@@ -1,11 +1,13 @@
 from tkinter import *
 window = Tk()
 
-window.title("Login Form")
+window.title("Admin Login Form")
 window.geometry("1550x850")
+icon = PhotoImage(file="logo.png")
+window.iconphoto(True,icon)
 window.config(background='MediumSpringGreen')
 frame = Frame(window,bg='PaleGreen')
-frame.pack()
+frame.place(x=650,y=300)
 lbl_username = Label(frame, text="Username:",bg='PaleGreen')
 lbl_username.grid(row=0, column=0, sticky=W)
 ent_username = Entry(frame)
